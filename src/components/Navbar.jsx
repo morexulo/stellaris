@@ -1,6 +1,8 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi'; // Importa los íconos de menú
+import { Link } from "react-router-dom";
+
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,10 +44,15 @@ const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/productos" className="text-white hover:text-gray-300">
-              Productos
-            </a>
-          </li>
+          <Link
+            to="/productos"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block text-white hover:text-gray-300"
+          >
+            Productos
+          </Link>
+        </li>
+
           <li>
             <a href="/#services" className="text-white hover:text-gray-300">
               Servicios
