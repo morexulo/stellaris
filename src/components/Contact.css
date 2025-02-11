@@ -1,0 +1,93 @@
+/* Contenedor principal de la página de contacto */
+.contact-page {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Contenedor para el fondo 3D */
+  .background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Estilo para el canvas de Three.js */
+  .canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #110F10;
+  }
+  
+  /* Contenedor del formulario: centrado y con mayor z-index */
+  .form-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  /* Estilo glassmorphism para el formulario */
+  .glass-form {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 2rem;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Título del formulario */
+  .glass-form h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  /* Estilos generales para el formulario */
+  .glass-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .glass-form input,
+  .glass-form textarea {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: background 0.3s ease;
+  }
+  
+  .glass-form input:focus,
+  .glass-form textarea:focus {
+    background: rgba(255, 255, 255, 0.3);
+  }
+  
+  .glass-form button {
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #3b82f6;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .glass-form button:hover {
+    background: #60a5fa;
+  }
+  
