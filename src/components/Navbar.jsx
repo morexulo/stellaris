@@ -73,7 +73,7 @@ const Navbar = () => {
     <ul className="flex flex-col space-y-4 text-center">
       <li>
         <a
-          href="#hero"
+          href="/#hero"
           onClick={() => setMobileMenuOpen(false)}
           className="block text-white hover:text-gray-300"
         >
@@ -82,7 +82,16 @@ const Navbar = () => {
       </li>
       <li>
         <a
-          href="#services"
+          href="/productos"
+          onClick={() => setMobileMenuOpen(false)}
+          className="block text-white hover:text-gray-300"
+        >
+          Productos
+        </a>
+      </li>
+      <li>
+        <a
+          href="/#services"
           onClick={() => setMobileMenuOpen(false)}
           className="block text-white hover:text-gray-300"
         >
@@ -91,7 +100,7 @@ const Navbar = () => {
       </li>
       <li>
         <a
-          href="#contact"
+          href="/#contact"
           onClick={() => setMobileMenuOpen(false)}
           className="block text-white hover:text-gray-300"
         >
