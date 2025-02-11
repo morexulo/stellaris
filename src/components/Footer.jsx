@@ -25,7 +25,7 @@ const Footer = () => {
 
       <div className="container relative mx-auto px-4 text-center">
         <p className="text-sm font-light">
-          © {new Date().getFullYear()} MiEmpresa. Todos los derechos reservados.
+          © {new Date().getFullYear()} Stellaris Code. Todos los derechos reservados.
         </p>
       </div>
     </footer>
