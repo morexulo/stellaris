@@ -1,22 +1,24 @@
 // src/components/Navbar.jsx
 import React, { useEffect, useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi'; // Importa los íconos de menú
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
-    // Función para actualizar el estado según el scroll
+    // Actualiza el estado según el scroll
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
     
-    // Limpiar el listener cuando se desmonte el componente
+    // Limpia el listener al desmontar el componente
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Determina las clases del header según el estado de scroll
+  // Determina las clases del header según el scroll
   const headerClasses = scrolled
     ? "bg-black-900 shadow-lg transition-all duration-300"
     : "bg-transparent transition-all duration-300";
@@ -24,13 +26,14 @@ const Navbar = () => {
   return (
     <header
       className={`${headerClasses} fixed w-full z-50`}
-      style={{ backdropFilter: 'blur(10px)' }} // Efecto de desenfoque para modernizar (opcional)
+      style={{ backdropFilter: 'blur(10px)' }} // Efecto de desenfoque
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="text-xl font-bold text-white">
-        Stellaris Code
+          Stellaris Code
         </div>
-        <ul className="flex space-x-4">
+        {/* Menú para pantallas grandes (desktop) */}
+        <ul className="hidden md:flex space-x-4">
           <li>
             <a href="#hero" className="text-white hover:text-gray-300">
               Inicio
@@ -47,7 +50,51 @@ const Navbar = () => {
             </a>
           </li>
         </ul>
+        {/* Botón hamburguesa para móviles */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="text-white focus:outline-none"
+          >
+            {mobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          </button>
+        </div>
       </nav>
+      {/* Menú desplegable para móviles */}
+      {mobileMenuOpen && (
+  <div className="md:hidden bg-black/80 min-h-screen flex items-center justify-center">
+    <ul className="flex flex-col space-y-4 text-center">
+      <li>
+        <a
+          href="#hero"
+          onClick={() => setMobileMenuOpen(false)}
+          className="block text-white hover:text-gray-300"
+        >
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a
+          href="#services"
+          onClick={() => setMobileMenuOpen(false)}
+          className="block text-white hover:text-gray-300"
+        >
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contact"
+          onClick={() => setMobileMenuOpen(false)}
+          className="block text-white hover:text-gray-300"
+        >
+          Contacto
+        </a>
+      </li>
+    </ul>
+  </div>
+)}
+
     </header>
   );
 };
