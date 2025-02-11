@@ -1,13 +1,14 @@
 // src/components/Hero.jsx
 import React from 'react';
 import { Typewriter } from 'react-simple-typewriter';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
   return (
     <section
       className="relative flex items-center justify-center"
       style={{
-        backgroundImage: "url('/images/futuristic-mountain.jpg')", // La imagen debe estar en public/images
+        backgroundImage: "url('/images/futuristic-mountain.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -16,10 +17,9 @@ const Hero = () => {
       }}
       id="hero"
     >
-      {/* Overlay para oscurecer el fondo y mejorar la legibilidad */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black opacity-50"></div>
 
-      {/* Contenido sobre el fondo */}
       <div className="relative z-10 text-center px-4">
         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
           Desarrollo Web Profesional
@@ -39,11 +39,10 @@ const Hero = () => {
             delaySpeed={2000}
           />
         </p>
-        {/* Botón moderno sin azul, con borde blanco, fondo transparente y efecto hover */}
+        {/* Botón con Link de React Router */}
         <button className="mt-8 px-8 py-3 bg-black text-white border border-black rounded-full hover:bg-white hover:text-black transition duration-300">
-        <a href="#contact">Contáctanos</a>
+          <Link to="/productos">Productos</Link>
         </button>
-
       </div>
     </section>
   );

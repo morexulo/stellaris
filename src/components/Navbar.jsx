@@ -30,22 +30,29 @@ const Navbar = () => {
     >
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <div className="text-xl font-bold text-white">
-          Stellaris Code
+        <a href="/" className="text-white hover:text-gray-300">
+              Stellaris Code
+            </a>
         </div>
         {/* Menú para pantallas grandes (desktop) */}
         <ul className="hidden md:flex space-x-4">
           <li>
-            <a href="#hero" className="text-white hover:text-gray-300">
+            <a href="/#hero" className="text-white hover:text-gray-300">
               Inicio
             </a>
           </li>
           <li>
-            <a href="#services" className="text-white hover:text-gray-300">
+            <a href="/productos" className="text-white hover:text-gray-300">
+              Productos
+            </a>
+          </li>
+          <li>
+            <a href="/#services" className="text-white hover:text-gray-300">
               Servicios
             </a>
           </li>
           <li>
-            <a href="#contact" className="text-white hover:text-gray-300">
+            <a href="/#contact" className="text-white hover:text-gray-300">
               Contacto
             </a>
           </li>
