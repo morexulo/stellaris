@@ -1,13 +1,15 @@
-// src/App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Products from './pages/Products';
+import Privacy from './pages/Privacy';
+import Cookies from './pages/Cookies';
+import Legal from './pages/Legal';
 
 function App() {
   return (
@@ -28,9 +30,11 @@ const AppContent = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/productos" element={<Products />} />
+        <Route path="/privacidad" element={<Privacy />} />
+        <Route path="/cookies" element={<Cookies />} />
+        <Route path="/aviso-legal" element={<Legal />} />
       </Routes>
-      {/* Solo muestra el Footer en la Home */}
-      {location.pathname === "/" && <Footer />}
+      <Footer />
     </div>
   );
 };
