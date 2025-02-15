@@ -1,5 +1,5 @@
 // src/components/Contact.jsx
-import React, { useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Stars, OrbitControls } from '@react-three/drei';
 import { motion } from 'framer-motion';
@@ -31,7 +31,7 @@ function ThreeBackground() {
     <Canvas
       className="canvas"
       style={{ background: '#110F10' }}
-      gl={{ alpha: false }} 
+      gl={{ alpha: false }}
     >
       <ambientLight intensity={0.5} />
       <directionalLight position={[5, 5, 5]} />
@@ -49,16 +49,59 @@ function ThreeBackground() {
   );
 }
 
-
+//
+// Componente del Spinner
+//
+function LoadingSpinner() {
+  return (
+    <div className="loading-spinner">
+      <svg className="spinner" viewBox="0 0 50 50">
+        <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="5" />
+      </svg>
+    </div>
+  );
+}
 
 //
 // Componente principal de Contact
 //
 const Contact = () => {
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [status, setStatus] = useState('');
+
+  // URL de tu API de Google Apps Script
+  const apiURL =
+    'https://script.google.com/macros/s/AKfycbw4qQOGaT0f6E7Xtw4eEXyqf1xK3MgNqMEgyx44x1-KZ0tEPGTO1OnJJ2sdcLOjMMB01Q/exec';
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Aquí se implementaría la lógica de envío (por ejemplo, una petición a un API)
-    console.log("Formulario enviado");
+    setStatus('Enviando...');
+
+    try {
+      const response = await fetch(apiURL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "text/plain" // Apps Script espera text/plain, no application/json
+        },
+        body: JSON.stringify(formData),
+        mode: "no-cors" // Para evitar bloqueos de CORS
+      });
+
+      setStatus('Mensaje enviado con éxito.');
+      setFormData({ name: "", email: "", message: "" });
+      
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      setStatus('Error al enviar el mensaje.');
+    }
   };
 
   return (
@@ -84,6 +127,8 @@ const Contact = () => {
               type="text"
               name="name"
               placeholder="Nombre"
+              value={formData.name}
+              onChange={handleChange}
               required
             />
             <motion.input
@@ -92,6 +137,8 @@ const Contact = () => {
               type="email"
               name="email"
               placeholder="Correo Electrónico"
+              value={formData.email}
+              onChange={handleChange}
               required
             />
             <motion.textarea
@@ -99,6 +146,8 @@ const Contact = () => {
               whileFocus={{ scale: 1.05 }}
               name="message"
               placeholder="Mensaje"
+              value={formData.message}
+              onChange={handleChange}
               required
             ></motion.textarea>
             <motion.button
@@ -109,6 +158,10 @@ const Contact = () => {
               Enviar
             </motion.button>
           </form>
+          <div className="status-container">
+            {status === 'Enviando...' && <LoadingSpinner />}
+            {status && <p className="status">{status}</p>}
+          </div>
         </motion.div>
       </div>
     </div>

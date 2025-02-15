@@ -91,3 +91,57 @@
     background: #60a5fa;
   }
   
+
+
+  /* Spinner container */
+.loading-spinner {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* SVG spinner */
+.spinner {
+  width: 24px;
+  height: 24px;
+  animation: rotate 2s linear infinite;
+}
+
+/* Configuración de la animación del círculo */
+.path {
+  stroke: #10b981; /* Verde */
+  stroke-linecap: round;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+/* Opcional: estilos para el contenedor de estado */
+.status-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.status {
+  font-size: 1rem;
+  color: #10b981;
+}
