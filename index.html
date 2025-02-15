@@ -5,39 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <title>Stellaris Code | Desarrollo Web Profesional</title>
+
+    <!-- Descripción general del sitio -->
     <meta name="description" content="Stellaris Code ofrece soluciones inteligentes y eficaces para el desarrollo web profesional y moderno. Creamos experiencias digitales innovadoras con tecnología de vanguardia." />
+    
+    <!-- Palabras clave para SEO -->
     <meta name="keywords" content="desarrollo web, software, soluciones digitales, diseño web, programación, tecnología, desarrollo moderno" />
+    
+    <!-- Información del autor y directrices para motores de búsqueda -->
     <meta name="author" content="Stellaris Code" />
     <meta name="robots" content="index, follow" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Verificación de Google Search Console (opcional, ajusta con tu código) -->
+    <meta name="google-site-verification" content="google8a4aa5be8a58b4bd" />
+
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Stellaris Code | Desarrollo Web Profesional" />
     <meta property="og:description" content="Soluciones inteligentes y eficaces para el desarrollo web. Diseñamos experiencias digitales modernas con tecnología avanzada." />
-    <meta property="og:image" content="/og-image.jpg" />
+    <meta property="og:image" content="/logo2.svg" />
     <meta property="og:url" content="https://stellariscode.com" />
     <meta property="og:site_name" content="Stellaris Code" />
 
-    <!-- Twitter / X -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Stellaris Code | Desarrollo Web Profesional" />
     <meta name="twitter:description" content="Soluciones inteligentes y eficaces para el desarrollo web. Diseñamos experiencias digitales modernas con tecnología avanzada." />
-    <meta name="twitter:image" content="/og-image.jpg" />
+    <meta name="twitter:image" content="/logo2.svg" />
     <meta name="twitter:site" content="@StellarisCode" />
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/logo2.svg" />
-    
-    <!-- Google Fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-    <!-- Canonical URL -->
+    <!-- Preconnect para mejorar carga de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Preload y carga de Google Fonts -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- URL canónica (indica la URL principal a buscadores) -->
     <link rel="canonical" href="https://stellariscode.com" />
   </head>
   <body>
+    <!-- Contenedor principal de React -->
     <div id="root"></div>
-    
-    <!-- Google Translate Widget -->
+
+    <!-- Google Translate Widget (oculto) -->
     <div id="google_translate_element" style="display:none;"></div>
     <script type="text/javascript">
       function googleTranslateElementInit() {
@@ -45,7 +67,9 @@
       }
     </script>
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-    
+
+    <!-- Script principal de React/Vite/Parcel/Webpack -->
     <script type="module" src="/src/main.jsx"></script>
+
   </body>
 </html>
